@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo-vbid.jpg"><title>VBID.app</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ animate.css@latest /animate.min.css"/><script src="path-to-vue.js"></script><script>Vue.use(AnimatedVue);
+    // TODO: Add your app's init script.
+    npm</script><script defer="defer" type="module" src="/js/chunk-vendors.26002e47.js"></script><script defer="defer" type="module" src="/js/app.664e2e43.js"></script><link href="/css/chunk-vendors.82efb2de.css" rel="stylesheet"><link href="/css/app.68c991c1.css" rel="stylesheet"><script defer="defer" src="/js/chunk-vendors-legacy.6991a0d9.js" nomodule></script><script defer="defer" src="/js/app-legacy.1bacad8f.js" nomodule></script></head><body><noscript><strong>We're sorry but vuejs_project doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><div class="info-card__circle info-card__circle-1"><div class="circle circle__first aos-init aos-animate" data-aos="pulsing"><div class="c c1"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c c5"></div></div></div></body><footer id="app"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><script>// kéo xuống khoảng cách 500px thì xuất hiện nút Top-up
+    var offset = 500;
+    // thời gian di trượt 0.75s ( 1000 = 1s )
+    var duration = 750;
+    $(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > offset)
+          $('#top-up').fadeIn(duration); else
+          $('#top-up').fadeOut(duration);
+      });
+      $('#top-up').click(function () {
+        $('body,html').animate({ scrollTop: 0 }, duration);
+      });
+    });</script><div title="Về đầu trang" id="top-up"><i class="fas fa-fighter-jet fa-rotate-270"></i></div></footer><style>#top-up {
+    font-size: 3rem;
+    cursor: pointer;
+    position: fixed;
+    z-index: 9999;
+    color: #589eef;
+    bottom: 20px;
+    right: 15px;
+    display: none;
+  }
+
+  #top-up:hover {
+    color: #ef7d58;
+  }
+  .bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  display: block;
+  align-items: center;
+}
+
+.theme--light.v-application{
+    background: none;
+}
+
+.v-application--wrap{
+  max-width: none;
+}</style></html>
