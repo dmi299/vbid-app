@@ -44,16 +44,16 @@
       <!----------------------------------------------------  ------------------------------------------------------->
       <section class="glass-bg">
         <v-row class="align-center px-10">
-          <v-col cols="12" lg="6" class="pa-6 font-weight-bold py-16">
+          <v-col cols="12" lg="6" class="font-weight-bold py-16">
             <h2 class="display-3" data-aos="fade-up" data-aos-delay="400">
               Hợp tác với những người thuận lợi!
             </h2>
 
             <v-row class="pt-16">
-              <v-subheader data-aos="fade-up" data-aos-delay="500"
+              <v-card-subtitle data-aos="fade-up" data-aos-delay="500"
                 >VBID là nền tảng kết nối chủ xe và khách thuê một cách nhanh
                 chóng với mức chiết khấu chỉ 5% cho mỗi giao dịch thành
-                công..</v-subheader
+                công..</v-card-subtitle
               >
             </v-row>
 
@@ -64,13 +64,13 @@
               large
               elevation="5"
               color="#32A071"
-              class="white--text ml-10 px-5 py-5"
+              class="white--text px-5 py-5"
               >Trở thành đối tác VBID
             </v-btn>
           </v-col>
           <v-col lg="6" cols="12">
             <v-img
-              data-aos="fade-left"
+              data-aos=""
               data-aos-delay="500"
               class="pa-10"
               height="450"
@@ -83,10 +83,17 @@
 
       <!---------------------------------------------------- ------------------------------------------------------->
       <section id="uudai" class="glass-bg">
+        <h4
+          class="display-2 text-center py-5"
+          data-aos="fade-down"
+          data-aos-delay="400"
+        >
+          Lợi ích khi đồng hành cùng VBID.
+        </h4>
         <v-row justify="center" class="align-center">
           <v-col sm="6" cols="12">
             <v-card
-              data-aos="fade-right"
+              data-aos="fade-left hidden-xs-only"
               data-aos-delay="600"
               class="text-center pa-6 rounded-lg"
               color="#e1e0e0c9"
@@ -95,7 +102,7 @@
               <v-icon left size="20">mdi-account</v-icon>
               <v-card-subtitle class="green--text"
                 >Người giới thiệu<br />
-                Họ giao dịch, bạn kiếm được!
+                Họ giao dịch, bạn kiếm được!!
               </v-card-subtitle>
 
               <h4 class="display-0 font-weight-regular">
@@ -107,20 +114,20 @@
                 <ul style="list-style-type: none">
                   <li>
                     <p>
-                      <v-icon>mdi-check</v-icon>FX Majors: Receive up to $35 per
-                      million US$ traded
+                      <v-icon>mdi-check</v-icon>Nhận tới $ 1,100 cho mỗi khách
+                      hàng mà bạn giới thiệu cho VBID.
                     </p>
                   </li>
                   <li style="">
                     <p>
-                      <v-icon>mdi-check</v-icon>FX Minors and Exotics: Receive
-                      up to $45 per million US$ traded
+                      <v-icon>mdi-check</v-icon>Các chương trình hoa hồng phù
+                      hợp với nhu cầu cá nhân.
                     </p>
                   </li>
                   <li style="">
                     <p>
-                      <v-icon>mdi-check</v-icon>Customised rebate schemes
-                      tailored just for you!
+                      <v-icon>mdi-check</v-icon>Các chương trình giảm giá tùy
+                      chỉnh được thiết kế riêng cho bạn!.
                     </p>
                   </li>
                 </ul>
@@ -130,7 +137,8 @@
                 large
                 elevation="5"
                 color="pink"
-                class="white--text mt-10 px-10 py-5"
+                class="white--text pa-2"
+                @click="check"
                 >Trở thành người giới thiệu
               </v-btn>
             </v-card>
@@ -138,7 +146,7 @@
 
           <v-col sm="6" cols="12">
             <v-card
-              data-aos="fade-left"
+              data-aos="fade-left hidden-xs-only"
               data-aos-delay="600"
               class="text-center pa-6 rounded-lg"
               color="#e1e0e0c9"
@@ -181,7 +189,7 @@
                 large
                 elevation="5"
                 color="pink"
-                class="white--text mt-10 px-10 py-5"
+                class="white--text pa-2"
                 @click="check"
                 >Trở thành cộng tác viên
               </v-btn>
@@ -217,28 +225,6 @@
             <v-col cols="12" sm="10" md="8" lg="6">
               <v-card ref="form" data-aos="fade-down" data-aos-delay="600">
                 <v-card-text>
-                  <p style="text-align: left">Loại quan hệ đối tác của bạn</p>
-                  <v-row>
-                    <v-col cols="2">
-                      <v-checkbox
-                        label="IB"
-                        value="IB"
-                        id="IB"
-                        ref="IB"
-                      ></v-checkbox>
-                    </v-col>
-                    <v-col>
-                      <v-checkbox label="Chi Nhánh" value="Chi nhánh">
-                      </v-checkbox>
-                    </v-col>
-                  </v-row>
-                  <v-text-field
-                    ref="account"
-                    v-model="account"
-                    label="Số tài khoản(nếu có)"
-                    placeholder=""
-                  >
-                  </v-text-field>
                   <p
                     style="
                       text-align: left;
@@ -253,24 +239,34 @@
                     v-model="name"
                     :rules="[() => !!name || 'This field is mandatory']"
                     :error-messages="errorMessages"
-                    label="Full Name"
+                    label="Họ và tên"
                     placeholder="Diệu Mi"
                     required
                   ></v-text-field>
 
                   <v-text-field
-                    ref="address"
-                    v-model="address"
+                    ref="number"
+                    v-model="number"
                     :rules="[
-                      () => !!address || 'This field is mandatory.',
+                      () => !!number || 'This field is mandatory.',
                       () =>
-                        (!!address && address.length <= 25) ||
-                        'Address must be less than 25 characters',
-                      addressCheck,
+                        (!!number && number.length <= 15) ||
+                        'Number must be less than 15 characters',
+                      numberCheck,
                     ]"
-                    label="Your contact number"
+                    label="Số điện thoại"
                     placeholder=""
-                    counter="25"
+                    counter="15"
+                    required
+                  ></v-text-field>
+
+                  <v-text-field
+                    ref="adress"
+                    v-model="adress"
+                    :rules="[() => !!adress || 'This field is mandatory']"
+                    :error-messages="errorMessages"
+                    label="Địa chỉ hiện tại"
+                    placeholder=""
                     required
                   ></v-text-field>
 
@@ -283,36 +279,10 @@
                         !!/.+@.+\..+/.test(email) ||
                         'Please enter a valid email address',
                     ]"
-                    label="Enter your email"
-                    placeholder="mitran.290901@gmail.com"
+                    label="Email"
+                    placeholder="abc@gmail.com"
                     required
                   ></v-text-field>
-
-                  <v-autocomplete
-                    ref="country"
-                    v-model="country"
-                    :rules="[() => !!country || 'This field is mandatory.']"
-                    :items="countries"
-                    label="Country of residence"
-                    placeholder="Select..."
-                    required
-                  ></v-autocomplete>
-
-                  <v-text-field
-                    ref="link"
-                    v-model="link"
-                    label="Website link (if available)"
-                    required
-                    placeholder=""
-                  >
-                  </v-text-field>
-                  <v-textarea
-                    name="note"
-                    v-model="note"
-                    :rules="[() => !!note || 'This field is mandatory.']"
-                    label="Give further details about you activity:"
-                    required
-                  ></v-textarea>
                 </v-card-text>
 
                 <v-divider class="mt-12"></v-divider>
@@ -362,13 +332,6 @@
       </section>
       <!----------------------------------------------------  ------------------------------------------------------->
       <section class="glass-bg" id="chinhsach">
-        <!-- <v-img
-          class="pa-10"
-          height="500"
-          color="#e1e0e0c9"
-          gradient="to bottom, rgb(200 200 180), rgb(227 227 227 / 55%)"
-          src="https://designshack.net/wp-content/uploads/Home-office.jpg"
-        > -->
         <div>
           <HeroComponent />
         </div>
@@ -415,17 +378,10 @@
             </div>
           </v-col>
         </v-row>
-        <!-- </v-img> -->
       </section>
     </v-main>
     <!----------------------------------------------------------------------------------------------------------->
     <section class="bg1">
-      <!-- <v-img
-        class=" pt-10"
-        height="550"
-        gradient="to bottom, rgb(166 199 156), rgb(227 227 227 / 40%)"
-        src="https://img.freepik.com/free-photo/contact-us_36325-2135.jpg?size=626&ext=jpg"
-      > -->
       <v-container>
         <v-divider />
         <br />
@@ -533,32 +489,30 @@
         </v-col>
       </div>
 
-      <!-- </v-img> -->
+      <v-bottom-navigation
+        class="hidden-lg-only"
+        style="position: fixed; height: 40px"
+        v-model="value"
+      >
+        <v-btn value="home" style="color: #ef7d58">
+          <span>Trang chủ</span>
+
+          <v-icon>mdi-home</v-icon>
+        </v-btn>
+
+        <v-btn value="blogs">
+          <span>Blogs</span>
+
+          <v-icon>mdi-book-information-variant</v-icon>
+        </v-btn>
+
+        <v-btn value="account">
+          <span>Tài Khoản</span>
+
+          <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
     </section>
-
-    <v-bottom-navigation
-      class="hidden-lg-only"
-      style="position: fixed"
-      v-model="value"
-    >
-      <v-btn value="home" style="color: #ef7d58">
-        <span>Trang chủ</span>
-
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
-
-      <v-btn value="blogs">
-        <span>Blogs</span>
-
-        <v-icon>mdi-book-information-variant</v-icon>
-      </v-btn>
-
-      <v-btn value="account">
-        <span>Tài Khoản</span>
-
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -571,223 +525,11 @@ export default {
   data: () => ({
     value: "home",
     isActive: false,
-    countries: [
-      "Afghanistan",
-      "Albania",
-      "Algeria",
-      "Andorra",
-      "Angola",
-      "Anguilla",
-      "Antigua &amp; Barbuda",
-      "Argentina",
-      "Armenia",
-      "Aruba",
-      "Australia",
-      "Austria",
-      "Azerbaijan",
-      "Bahamas",
-      "Bahrain",
-      "Bangladesh",
-      "Barbados",
-      "Belarus",
-      "Belgium",
-      "Belize",
-      "Benin",
-      "Bermuda",
-      "Bhutan",
-      "Bolivia",
-      "Bosnia &amp; Herzegovina",
-      "Botswana",
-      "Brazil",
-      "British Virgin Islands",
-      "Brunei",
-      "Bulgaria",
-      "Burkina Faso",
-      "Burundi",
-      "Cambodia",
-      "Cameroon",
-      "Cape Verde",
-      "Cayman Islands",
-      "Chad",
-      "Chile",
-      "China",
-      "Colombia",
-      "Congo",
-      "Cook Islands",
-      "Costa Rica",
-      "Cote D Ivoire",
-      "Croatia",
-      "Cruise Ship",
-      "Cuba",
-      "Cyprus",
-      "Czech Republic",
-      "Denmark",
-      "Djibouti",
-      "Dominica",
-      "Dominican Republic",
-      "Ecuador",
-      "Egypt",
-      "El Salvador",
-      "Equatorial Guinea",
-      "Estonia",
-      "Ethiopia",
-      "Falkland Islands",
-      "Faroe Islands",
-      "Fiji",
-      "Finland",
-      "France",
-      "French Polynesia",
-      "French West Indies",
-      "Gabon",
-      "Gambia",
-      "Georgia",
-      "Germany",
-      "Ghana",
-      "Gibraltar",
-      "Greece",
-      "Greenland",
-      "Grenada",
-      "Guam",
-      "Guatemala",
-      "Guernsey",
-      "Guinea",
-      "Guinea Bissau",
-      "Guyana",
-      "Haiti",
-      "Honduras",
-      "Hong Kong",
-      "Hungary",
-      "Iceland",
-      "India",
-      "Indonesia",
-      "Iran",
-      "Iraq",
-      "Ireland",
-      "Isle of Man",
-      "Israel",
-      "Italy",
-      "Jamaica",
-      "Japan",
-      "Jersey",
-      "Jordan",
-      "Kazakhstan",
-      "Kenya",
-      "Kuwait",
-      "Kyrgyz Republic",
-      "Laos",
-      "Latvia",
-      "Lebanon",
-      "Lesotho",
-      "Liberia",
-      "Libya",
-      "Liechtenstein",
-      "Lithuania",
-      "Luxembourg",
-      "Macau",
-      "Macedonia",
-      "Madagascar",
-      "Malawi",
-      "Malaysia",
-      "Maldives",
-      "Mali",
-      "Malta",
-      "Mauritania",
-      "Mauritius",
-      "Mexico",
-      "Moldova",
-      "Monaco",
-      "Mongolia",
-      "Montenegro",
-      "Montserrat",
-      "Morocco",
-      "Mozambique",
-      "Namibia",
-      "Nepal",
-      "Netherlands",
-      "Netherlands Antilles",
-      "New Caledonia",
-      "New Zealand",
-      "Nicaragua",
-      "Niger",
-      "Nigeria",
-      "Norway",
-      "Oman",
-      "Pakistan",
-      "Palestine",
-      "Panama",
-      "Papua New Guinea",
-      "Paraguay",
-      "Peru",
-      "Philippines",
-      "Poland",
-      "Portugal",
-      "Puerto Rico",
-      "Qatar",
-      "Reunion",
-      "Romania",
-      "Russia",
-      "Rwanda",
-      "Saint Pierre &amp; Miquelon",
-      "Samoa",
-      "San Marino",
-      "Satellite",
-      "Saudi Arabia",
-      "Senegal",
-      "Serbia",
-      "Seychelles",
-      "Sierra Leone",
-      "Singapore",
-      "Slovakia",
-      "Slovenia",
-      "South Africa",
-      "South Korea",
-      "Spain",
-      "Sri Lanka",
-      "St Kitts &amp; Nevis",
-      "St Lucia",
-      "St Vincent",
-      "St. Lucia",
-      "Sudan",
-      "Suriname",
-      "Swaziland",
-      "Sweden",
-      "Switzerland",
-      "Syria",
-      "Taiwan",
-      "Tajikistan",
-      "Tanzania",
-      "Thailand",
-      `Timor L'Este`,
-      "Togo",
-      "Tonga",
-      "Trinidad &amp; Tobago",
-      "Tunisia",
-      "Turkey",
-      "Turkmenistan",
-      "Turks &amp; Caicos",
-      "Uganda",
-      "Ukraine",
-      "United Arab Emirates",
-      "United Kingdom",
-      "United States",
-      "Uruguay",
-      "Uzbekistan",
-      "Venezuela",
-      "VietNam",
-      "Virgin Islands (US)",
-      "Yemen",
-      "Zambia",
-      "Zimbabwe",
-    ],
-
     errorMessages: "",
-    account: null,
     name: null,
-    address: null,
+    number: null,
+    adress: null,
     email: null,
-    country: null,
-    link: null,
-    note: null,
     formHasErrors: false,
   }),
 
@@ -799,13 +541,10 @@ export default {
   computed: {
     form() {
       return {
-        account: this.account,
         name: this.name,
-        address: this.address,
+        number: this.number,
         email: this.email,
-        country: this.country,
-        link: this.link,
-        note: this.note,
+        adress: this.adress,
       };
     },
   },
@@ -817,9 +556,8 @@ export default {
   },
 
   methods: {
-    addressCheck() {
-      this.errorMessages =
-        this.address && !this.name ? `Hey! I'm required` : "";
+    numberCheck() {
+      this.errorMessages = this.number && !this.name ? `Hey! I'm required` : "";
 
       return true;
     },
@@ -848,15 +586,6 @@ export default {
       console.log(this.$refs.ib);
     },
   },
-
-  // sliders: [
-  //   "https://cdn.searchenginejournal.com/wp-content/uploads/2020/01/which-web-design-platform-is-right-for-you-5e4d59fb941b9-1520x800.png",
-  //   "https://cdn.searchenginejournal.com/wp-content/uploads/2019/12/5-ways-seo-web-design-go-together-5e2945dd5df37.png",
-  //   "https://data.whicdn.com/images/350420216/original.jpg?t=1605047796",
-  //   "https://1zylgb20pxi7mw2sdr8i4a14-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/projectleft.jpg",
-  //   "https://cdn.dribbble.com/users/702789/screenshots/14012516/media/561a8b7e8cbe51c72c18f4ef0dc72676.png?compress=1&resize=400x300",
-  //   "https://cdn.dribbble.com/users/2399102/screenshots/15522177/media/346d890482d929610d316938e7d48629.png?compress=1&resize=400x300",
-  // ],
 };
 </script>
 

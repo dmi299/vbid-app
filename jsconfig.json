@@ -1,6 +1,7 @@
 {
   "vuecompilerOptions": {
     "ExperimentDisableTemplateSupport": true,
+    "jsx": "preserve",
     "target": "es5",
     "module": "esnext",
     "baseUrl": "./",
@@ -16,6 +17,6 @@
       "dom.iterable",
       "scripthost"
     ],
-    "jsx": "preserve"
+    
   }
 }

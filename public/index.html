@@ -12,11 +12,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <!-- <link rel="stylesheet" href="[path_to_animated-vue.js]"> -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ animate.css@latest /animate.min.css" /> -->
-  <!-- <script src="path-to-vue.js"></script> -->
-
-
 </head>
 
 <body>
@@ -26,6 +21,7 @@
   </noscript>
 
   <div id="app">
+
   </div>
 
 
@@ -37,7 +33,10 @@
   <!-- import icon font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
   <!-- Import thư viện JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+  </script>
+
   <script>
     // kéo xuống khoảng cách 500px thì xuất hiện nút Top-up
     var offset = 500;
@@ -68,7 +67,7 @@
     z-index: 9999;
     color: #589eef;
     bottom: 20px;
-    right: 15px;
+    right: 0px;
     display: none;
   }
 
@@ -84,6 +83,20 @@
 
   .v-responsive {
     flex: unset;
+  }
+
+  .v-application .px-10 {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+
+  .row {
+    margin: auto;
+  }
+
+  .v-tabs:not(.v-tabs--vertical):not(.v-tabs--right)>.v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes) .v-slide-group__prev {
+    display: none;
+
   }
 </style>
 
